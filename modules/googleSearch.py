@@ -4,6 +4,7 @@ from google_trans_new import google_translator
 import requests
  
 from pyrogram.types import ChatPermissions
+from bs4 import BeautifulSoup
  
 import time
 from time import sleep
@@ -29,7 +30,30 @@ def googleSearch(client, message):
 
     req = requests.get(link)
 
-    text = "[Search]({0})".format(req.url)
+    soup = BeautifulSoup(req.text, "html.parser")
+
+    results = []
+    for g in soup.find_all('div'):
+        anchors = g.find_all('a')
+        if anchors:
+            link = anchors[0]['href']
+            try:
+                title = g.find('h3').text
+            except:
+                continue
+            item = {
+                "title": title,
+                "link": link
+            }
+            results.append(item)
+
+
+    text = "[[Search]]({0})\n\n".format(req.url)
+    
+    for i in results:
+        _text = "[{0}]({1})\n".format(i['title'], i['link'])
+        text += _text
+        print("1")
     
     reply_message_id = message.message_id
     photos = [

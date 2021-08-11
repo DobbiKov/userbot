@@ -41,7 +41,7 @@ def helpall(client, message):
 
 
 
-#поиск в гугл
+#поиск в гугл 
 @app.on_message(filters.command("23", prefixes="#"))
 def echo(client, message):
     googleSearch(client, message)

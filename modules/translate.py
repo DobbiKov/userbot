@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from google_trans_new import google_translator
+from mtranslate import translate as translateFunc
 import requests
  
 from pyrogram.types import ChatPermissions
@@ -23,10 +24,10 @@ def translate(client, message, from_lang, to_lang, prefix):
         if message.reply_to_message.text == None:
             return
         orig_text = message.reply_to_message.text
-    translate = translator.translate(orig_text, to_lang, from_lang)
+    translate = translateFunc(orig_text, to_lang, from_lang)
     trans_text = translate
 
-    text = "Translate: {0}".format(trans_text)
+    text = "Translate:\n\n{0}".format(trans_text)
     
     reply_message_id = message.message_id
     photos = [

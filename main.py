@@ -26,14 +26,14 @@ def helpall(client, message):
 - #ru - перевод с английского на русский (временно недоступно)")
 
 #переводчик с русского на английский
-# @app.on_message(filters.command("en", prefixes="#"))
-# def translateen(client, message):
-#     translate(client, message, "ru", "en", "#en ")
+@app.on_message(filters.command("en", prefixes="#"))
+def translateen(client, message):
+    translate(client, message, "ru", "en", "#en ")
 
-# #переводчик с английского на русский
-# @app.on_message(filters.command("ru", prefixes="#"))
-# def translateru(client, message):
-#     translate(client, message, "en", "ru", "#ru ")
+#переводчик с английского на русский
+@app.on_message(filters.command("ru", prefixes="#"))
+def translateru(client, message):
+    translate(client, message, "en", "ru", "#ru ")
 
 
 

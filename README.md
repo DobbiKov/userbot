@@ -1,7 +1,7 @@
 # DobbiKov userbot for Telegram
 
 ## General information
-Developer: Roman Zapotockiy[DobbiKov]
+Developer: Roman Zapotockiy[DobbiKov]\
 Telegram Group: https://t.me/dobbikov_dev
 
 ## Stack

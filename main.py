@@ -38,7 +38,33 @@ def translateru(client, message):
 
 
 
+classmates = [
+    736419735,
+    5200613842,
+    769261945,
+    1129340099,
+    1013678603,
+    878679344,
+    732773897,
+    792643492,
+    631487736,
+    779019822,
+    1260207019,
+    2023501286,
+    717628531,
+    493205532,
+    796941936,
+    1290382750,
+    642098524
+]
 
+#поиск в гугл 
+@app.on_message(filters.command("mafia", prefixes="#"))
+def mafia(client, message):
+    text = message.text.split("#mafia ")[-1]
+    for i in classmates:
+        client.send_message(i, text)
+        sleep(0.2)
 
 
 #поиск в гугл 
